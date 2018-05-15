@@ -1,0 +1,89 @@
+<component name="ArtifactManager">
+  <artifact name="collect:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/collect_jar</output-path>
+    <root id="root">
+      <element id="archive" name="collect.jar">
+        <element id="module-output" name="collect" />
+        <element id="module-output" name="message" />
+      </element>
+      <element id="library" level="project" name="Maven: com.yammer.metrics:metrics-core:2.2.0" />
+      <element id="library" level="project" name="sbt: com.101tec:zkclient:0.10:jar" />
+      <element id="library" level="project" name="sbt: io.netty:netty:3.10.6.Final:jar" />
+      <element id="library" level="project" name="Maven: org.slf4j:log4j-over-slf4j:1.7.25" />
+      <element id="library" level="project" name="sbt: org.scala-lang.modules:scala-java8-compat_2.12:0.8.0:jar" />
+      <element id="library" level="project" name="Maven: org.xerial.snappy:snappy-java:1.1.7.1" />
+      <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.25" />
+      <element id="library" level="project" name="Maven: com.typesafe.akka:akka-slf4j_2.12:2.5.12" />
+      <element id="library" level="project" name="sbt: io.aeron:aeron-client:1.7.0:jar" />
+      <element id="library" level="project" name="sbt: com.fasterxml.jackson.core:jackson-databind:2.9.4:jar" />
+      <element id="library" level="project" name="sbt: com.typesafe:ssl-config-core_2.12:0.2.3:jar" />
+      <element id="library" level="project" name="Maven: org.apache.kafka:kafka_2.12:1.1.0" />
+      <element id="library" level="project" name="sbt: com.typesafe.akka:akka-parsing_2.12:10.1.1:jar" />
+      <element id="library" level="project" name="Maven: com.typesafe.akka:akka-contrib_2.12:2.5.12" />
+      <element id="library" level="project" name="Maven: com.typesafe.akka:akka-remote_2.12:2.5.12" />
+      <element id="library" level="project" name="sbt: net.sf.jopt-simple:jopt-simple:5.0.4:jar" />
+      <element id="library" level="project" name="sbt: org.scala-lang:scala-library:2.12.6:jar" />
+      <element id="library" level="project" name="sbt: com.yammer.metrics:metrics-core:2.2.0:jar" />
+      <element id="library" level="project" name="sbt: com.typesafe.akka:akka-persistence_2.12:2.5.12:jar" />
+      <element id="library" level="project" name="sbt: com.typesafe.akka:akka-stream_2.12:2.5.12:jar" />
+      <element id="library" level="project" name="Maven: io.netty:netty:3.10.6.Final" />
+      <element id="library" level="project" name="sbt: io.spray:spray-json_2.12:1.3.4:jar" />
+      <element id="library" level="project" name="Maven: com.typesafe:ssl-config-core_2.12:0.2.3" />
+      <element id="library" level="project" name="sbt: com.typesafe.akka:akka-cluster_2.12:2.5.12:jar" />
+      <element id="library" level="project" name="Maven: com.typesafe.akka:akka-protobuf_2.12:2.5.12" />
+      <element id="library" level="project" name="Maven: com.101tec:zkclient:0.10" />
+      <element id="library" level="project" name="sbt: org.lz4:lz4-java:1.4:jar" />
+      <element id="library" level="project" name="sbt: com.fasterxml.jackson.core:jackson-core:2.9.4:jar" />
+      <element id="library" level="project" name="Maven: org.agrona:agrona:0.9.12" />
+      <element id="library" level="project" name="Maven: com.typesafe.akka:akka-persistence_2.12:2.5.12" />
+      <element id="library" level="project" name="Maven: com.typesafe.akka:akka-stream_2.12:2.5.12" />
+      <element id="library" level="project" name="Maven: org.apache.kafka:kafka-clients:1.1.0" />
+      <element id="library" level="project" name="Maven: com.typesafe.akka:akka-parsing_2.12:10.1.1" />
+      <element id="library" level="project" name="sbt: com.typesafe.scala-logging:scala-logging_2.12:3.7.2:jar" />
+      <element id="library" level="project" name="Maven: com.typesafe.akka:akka-cluster-tools_2.12:2.5.12" />
+      <element id="library" level="project" name="sbt: com.typesafe.akka:akka-protobuf_2.12:2.5.12:jar" />
+      <element id="library" level="project" name="Maven: io.spray:spray-json_2.12:1.3.4" />
+      <element id="library" level="project" name="Maven: com.typesafe.akka:akka-http-spray-json_2.12:10.1.1" />
+      <element id="library" level="project" name="sbt: org.apache.kafka:kafka-clients:1.1.0:jar" />
+      <element id="library" level="project" name="sbt: org.scala-lang:scala-reflect:2.12.6:jar" />
+      <element id="library" level="project" name="sbt: org.apache.zookeeper:zookeeper:3.4.10:jar" />
+      <element id="library" level="project" name="Maven: com.typesafe.akka:akka-cluster_2.12:2.5.12" />
+      <element id="library" level="project" name="sbt: com.typesafe.akka:akka-remote_2.12:2.5.12:jar" />
+      <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.9.4" />
+      <element id="library" level="project" name="Maven: com.hynnet:oracle-driver-ojdbc:12.1.0.2" />
+      <element id="library" level="project" name="sbt: io.aeron:aeron-driver:1.7.0:jar" />
+      <element id="library" level="project" name="sbt: com.typesafe.akka:akka-http-core_2.12:10.1.1:jar" />
+      <element id="library" level="project" name="Maven: com.typesafe.akka:akka-actor_2.12:2.5.12" />
+      <element id="library" level="project" name="sbt: com.typesafe.akka:akka-testkit_2.12:2.5.12:jar" />
+      <element id="library" level="project" name="Maven: com.typesafe.akka:akka-http-core_2.12:10.1.1" />
+      <element id="library" level="project" name="sbt: org.xerial.snappy:snappy-java:1.1.7.1:jar" />
+      <element id="library" level="project" name="sbt: org.agrona:agrona:0.9.12:jar" />
+      <element id="library" level="project" name="Maven: io.aeron:aeron-driver:1.7.0" />
+      <element id="library" level="project" name="Maven: org.scala-lang.modules:scala-parser-combinators_2.12:1.1.0" />
+      <element id="library" level="project" name="sbt: org.reactivestreams:reactive-streams:1.0.2:jar" />
+      <element id="library" level="project" name="sbt: com.typesafe.akka:akka-http_2.12:10.1.1:jar" />
+      <element id="library" level="project" name="sbt: com.typesafe.akka:akka-contrib_2.12:2.5.12:jar" />
+      <element id="library" level="project" name="Maven: org.scala-lang:scala-reflect:2.12.4" />
+      <element id="library" level="project" name="Maven: org.scala-lang.modules:scala-java8-compat_2.12:0.8.0" />
+      <element id="library" level="project" name="sbt: com.typesafe.akka:akka-cluster-tools_2.12:2.5.12:jar" />
+      <element id="library" level="project" name="Maven: org.lz4:lz4-java:1.4" />
+      <element id="library" level="project" name="Maven: io.aeron:aeron-client:1.7.0" />
+      <element id="library" level="project" name="sbt: org.slf4j:slf4j-api:1.7.25:jar" />
+      <element id="library" level="project" name="Maven: com.typesafe.scala-logging:scala-logging_2.12:3.7.2" />
+      <element id="library" level="project" name="Maven: com.typesafe.akka:akka-http_2.12:10.1.1" />
+      <element id="library" level="project" name="Maven: com.typesafe:config:1.3.2" />
+      <element id="library" level="project" name="sbt: org.scala-lang.modules:scala-parser-combinators_2.12:1.1.0:jar" />
+      <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.9.4" />
+      <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.9.0" />
+      <element id="library" level="project" name="sbt: com.typesafe.akka:akka-actor_2.12:2.5.12:jar" />
+      <element id="library" level="project" name="Maven: net.sf.jopt-simple:jopt-simple:5.0.4" />
+      <element id="library" level="project" name="Maven: org.reactivestreams:reactive-streams:1.0.2" />
+      <element id="library" level="project" name="sbt: com.typesafe:config:1.3.2:jar" />
+      <element id="library" level="project" name="sbt: com.typesafe.akka:akka-http-spray-json_2.12:10.1.1:jar" />
+      <element id="library" level="project" name="sbt: com.fasterxml.jackson.core:jackson-annotations:2.9.0:jar" />
+      <element id="library" level="project" name="Maven: org.apache.zookeeper:zookeeper:3.4.10" />
+      <element id="library" level="project" name="sbt: org.apache.kafka:kafka_2.12:1.1.0:jar" />
+      <element id="library" level="project" name="Maven: org.scala-lang:scala-library:2.12.5" />
+    </root>
+  </artifact>
+</component>

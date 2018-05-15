@@ -1,0 +1,25 @@
+-- Create table
+create table EMAIL_LOG
+(
+  id       number(10) generated always as identity,
+  name     nvarchar2(255),
+  email    nvarchar2(255),
+  template nvarchar2(255),
+  params   nvarchar2(255),
+  state    number(1),
+  created  date
+)
+;
+-- Add comments to the columns
+comment on column EMAIL_LOG.name
+  is '用户名';
+comment on column EMAIL_LOG.email
+  is '用户邮箱';
+comment on column EMAIL_LOG.template
+  is '模板';
+comment on column EMAIL_LOG.params
+  is '参数';
+  comment on column EMAIL_LOG.state
+    is '状态';
+comment on column EMAIL_LOG.created
+  is '日期';

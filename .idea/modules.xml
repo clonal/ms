@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/collect/collect.iml" filepath="$PROJECT_DIR$/collect/collect.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/collect-build.iml" filepath="$PROJECT_DIR$/.idea/modules/collect-build.iml" />
+      <module fileurl="file://D:/ko-mail/.idea/modules/ko-mail.iml" filepath="D:/ko-mail/.idea/modules/ko-mail.iml" />
+      <module fileurl="file://D:/ko-mail/.idea/modules/ko-mail-build.iml" filepath="D:/ko-mail/.idea/modules/ko-mail-build.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/message-build.iml" filepath="$PROJECT_DIR$/.idea/modules/message-build.iml" />
+      <module fileurl="file://$PROJECT_DIR$/process/process.iml" filepath="$PROJECT_DIR$/process/process.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/process-build.iml" filepath="$PROJECT_DIR$/.idea/modules/process-build.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/root.iml" filepath="$PROJECT_DIR$/.idea/modules/root.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/root-build.iml" filepath="$PROJECT_DIR$/.idea/modules/root-build.iml" />
+      <module fileurl="file://$PROJECT_DIR$/webserver/webserver.iml" filepath="$PROJECT_DIR$/webserver/webserver.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/webserver-build.iml" filepath="$PROJECT_DIR$/.idea/modules/webserver-build.iml" />
+    </modules>
+  </component>
+</project>

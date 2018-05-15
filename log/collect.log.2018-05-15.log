@@ -1,0 +1,145 @@
+2018-05-15 19:42:12.179 [email-cluster-system-akka.actor.default-dispatcher-19] INFO  org.apache.kafka.clients.consumer.ConsumerConfig:  ConsumerConfig values: 
+	auto.commit.interval.ms = 1000
+	auto.offset.reset = latest
+	bootstrap.servers = [10.0.2.190:9092]
+	check.crcs = true
+	client.id = 
+	connections.max.idle.ms = 540000
+	enable.auto.commit = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = mailTopic
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 305000
+	retry.backoff.ms = 100
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.mechanism = GSSAPI
+	security.protocol = PLAINTEXT
+	send.buffer.bytes = 131072
+	session.timeout.ms = 30000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+	ssl.endpoint.identification.algorithm = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLS
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2018-05-15 19:42:12.199 [email-cluster-system-akka.actor.default-dispatcher-19] WARN  org.apache.kafka.clients.consumer.ConsumerConfig:  The configuration 'topics' was supplied but isn't a known config.
+2018-05-15 19:42:12.201 [email-cluster-system-akka.actor.default-dispatcher-19] INFO  org.apache.kafka.common.utils.AppInfoParser:  Kafka version : 1.1.0
+2018-05-15 19:42:12.203 [email-cluster-system-akka.actor.default-dispatcher-19] INFO  org.apache.kafka.common.utils.AppInfoParser:  Kafka commitId : fdcf75ea326b8e07
+2018-05-15 19:42:12.206 [email-cluster-system-akka.actor.default-dispatcher-19] INFO  collector:  Actor[akka://email-cluster-system/user/collectingActor#696974354] 开始读取kafka队列 on WrappedArray(mailTopic)
+2018-05-15 19:42:12.281 [email-cluster-system-akka.actor.default-dispatcher-22] INFO  org.apache.kafka.clients.Metadata:  Cluster ID: OeMJzQj_SyKUIPVyyv2A2w
+2018-05-15 19:42:12.283 [email-cluster-system-akka.actor.default-dispatcher-22] INFO  o.a.k.c.consumer.internals.AbstractCoordinator:  [Consumer clientId=consumer-1, groupId=mailTopic] Discovered group coordinator 10.0.2.190:9092 (id: 2147483646 rack: null)
+2018-05-15 19:42:12.287 [email-cluster-system-akka.actor.default-dispatcher-22] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator:  [Consumer clientId=consumer-1, groupId=mailTopic] Revoking previously assigned partitions []
+2018-05-15 19:42:12.289 [email-cluster-system-akka.actor.default-dispatcher-22] INFO  o.a.k.c.consumer.internals.AbstractCoordinator:  [Consumer clientId=consumer-1, groupId=mailTopic] (Re-)joining group
+2018-05-15 19:42:12.301 [email-cluster-system-akka.actor.default-dispatcher-22] INFO  o.a.k.c.consumer.internals.AbstractCoordinator:  [Consumer clientId=consumer-1, groupId=mailTopic] Successfully joined group with generation 20
+2018-05-15 19:42:12.304 [email-cluster-system-akka.actor.default-dispatcher-22] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator:  [Consumer clientId=consumer-1, groupId=mailTopic] Setting newly assigned partitions [mailTopic-2, mailTopic-1, mailTopic-0]
+2018-05-15 19:43:02.033 [email-cluster-system-akka.actor.default-dispatcher-22] INFO  consumer:  将kafka队列消息转化为MailJob:  withdrawApply -> {"to": "clonal@163.com", "name": "11y", "coins":"2000", "address":"ssss", "link": "www.baidu.com"} on 2018-05-15T19:43:02.033!
+2018-05-15 19:48:54.177 [email-cluster-system-akka.actor.default-dispatcher-19] INFO  org.apache.kafka.clients.consumer.ConsumerConfig:  ConsumerConfig values: 
+	auto.commit.interval.ms = 1000
+	auto.offset.reset = latest
+	bootstrap.servers = [10.0.2.190:9092]
+	check.crcs = true
+	client.id = 
+	connections.max.idle.ms = 540000
+	enable.auto.commit = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = mailTopic
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 305000
+	retry.backoff.ms = 100
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.mechanism = GSSAPI
+	security.protocol = PLAINTEXT
+	send.buffer.bytes = 131072
+	session.timeout.ms = 30000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+	ssl.endpoint.identification.algorithm = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLS
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2018-05-15 19:48:54.223 [email-cluster-system-akka.actor.default-dispatcher-19] WARN  org.apache.kafka.clients.consumer.ConsumerConfig:  The configuration 'topics' was supplied but isn't a known config.
+2018-05-15 19:48:54.226 [email-cluster-system-akka.actor.default-dispatcher-19] INFO  org.apache.kafka.common.utils.AppInfoParser:  Kafka version : 1.1.0
+2018-05-15 19:48:54.228 [email-cluster-system-akka.actor.default-dispatcher-19] INFO  org.apache.kafka.common.utils.AppInfoParser:  Kafka commitId : fdcf75ea326b8e07
+2018-05-15 19:48:54.232 [email-cluster-system-akka.actor.default-dispatcher-19] INFO  collector:  Actor[akka://email-cluster-system/user/collectingActor#-285288960] 开始读取kafka队列 on WrappedArray(mailTopic)
+2018-05-15 19:48:54.300 [email-cluster-system-akka.actor.default-dispatcher-16] INFO  org.apache.kafka.clients.Metadata:  Cluster ID: OeMJzQj_SyKUIPVyyv2A2w
+2018-05-15 19:48:54.303 [email-cluster-system-akka.actor.default-dispatcher-16] INFO  o.a.k.c.consumer.internals.AbstractCoordinator:  [Consumer clientId=consumer-1, groupId=mailTopic] Discovered group coordinator 10.0.2.190:9092 (id: 2147483646 rack: null)
+2018-05-15 19:48:54.308 [email-cluster-system-akka.actor.default-dispatcher-16] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator:  [Consumer clientId=consumer-1, groupId=mailTopic] Revoking previously assigned partitions []
+2018-05-15 19:48:54.311 [email-cluster-system-akka.actor.default-dispatcher-16] INFO  o.a.k.c.consumer.internals.AbstractCoordinator:  [Consumer clientId=consumer-1, groupId=mailTopic] (Re-)joining group
+2018-05-15 19:48:54.327 [email-cluster-system-akka.actor.default-dispatcher-16] INFO  o.a.k.c.consumer.internals.AbstractCoordinator:  [Consumer clientId=consumer-1, groupId=mailTopic] Successfully joined group with generation 22
+2018-05-15 19:48:54.330 [email-cluster-system-akka.actor.default-dispatcher-16] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator:  [Consumer clientId=consumer-1, groupId=mailTopic] Setting newly assigned partitions [mailTopic-2, mailTopic-1, mailTopic-0]
+2018-05-15 19:49:40.773 [email-cluster-system-akka.actor.default-dispatcher-16] INFO  consumer:  将kafka队列消息转化为MailJob:  withdrawApply -> {"to": "clonal@163.com", "name": "11y", "coins":"2000", "address":"ssss", "link": "www.baidu.com"} on 2018-05-15T19:49:40.773!
+2018-05-15 19:52:32.723 [email-cluster-system-akka.actor.default-dispatcher-16] INFO  consumer:  将kafka队列消息转化为MailJob:  withdrawApply -> {"to": "clonal@163.com", "name": "11y", "coins":"2000", "address":"ssss", "link": "www.baidu.com"} on 2018-05-15T19:52:32.723!
+2018-05-15 19:59:36.906 [email-cluster-system-akka.actor.default-dispatcher-16] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator:  [Consumer clientId=consumer-1, groupId=mailTopic] Revoking previously assigned partitions [mailTopic-2, mailTopic-1, mailTopic-0]
+2018-05-15 19:59:36.907 [email-cluster-system-akka.actor.default-dispatcher-16] INFO  o.a.k.c.consumer.internals.AbstractCoordinator:  [Consumer clientId=consumer-1, groupId=mailTopic] (Re-)joining group
+2018-05-15 19:59:36.911 [email-cluster-system-akka.actor.default-dispatcher-16] INFO  o.a.k.c.consumer.internals.AbstractCoordinator:  [Consumer clientId=consumer-1, groupId=mailTopic] Successfully joined group with generation 23
+2018-05-15 19:59:36.913 [email-cluster-system-akka.actor.default-dispatcher-16] INFO  o.a.k.c.consumer.internals.ConsumerCoordinator:  [Consumer clientId=consumer-1, groupId=mailTopic] Setting newly assigned partitions [mailTopic-0]

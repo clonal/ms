@@ -1,0 +1,131 @@
+2018-05-15 19:41:58.070 [main] INFO  webserver:  Server online at http://10.0.1.61:8099 on 2018-05-15T19:41:58.069
+2018-05-15 19:43:01.825 [default-akka.actor.default-dispatcher-4] INFO  org.apache.kafka.clients.producer.ProducerConfig:  ProducerConfig values: 
+	acks = all
+	batch.size = 16384
+	bootstrap.servers = [10.0.2.190:9092]
+	buffer.memory = 33554432
+	client.id = 
+	compression.type = none
+	connections.max.idle.ms = 540000
+	enable.idempotence = false
+	interceptor.classes = []
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	linger.ms = 1
+	max.block.ms = 60000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 0
+	retry.backoff.ms = 100
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.mechanism = GSSAPI
+	security.protocol = PLAINTEXT
+	send.buffer.bytes = 131072
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+	ssl.endpoint.identification.algorithm = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLS
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 60000
+	transactional.id = null
+	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
+
+2018-05-15 19:43:01.920 [default-akka.actor.default-dispatcher-4] WARN  org.apache.kafka.clients.producer.ProducerConfig:  The configuration 'batch.num.messages' was supplied but isn't a known config.
+2018-05-15 19:43:01.921 [default-akka.actor.default-dispatcher-4] WARN  org.apache.kafka.clients.producer.ProducerConfig:  The configuration 'producer.type' was supplied but isn't a known config.
+2018-05-15 19:43:01.922 [default-akka.actor.default-dispatcher-4] WARN  org.apache.kafka.clients.producer.ProducerConfig:  The configuration 'queue.buffering.max.messages' was supplied but isn't a known config.
+2018-05-15 19:43:01.922 [default-akka.actor.default-dispatcher-4] WARN  org.apache.kafka.clients.producer.ProducerConfig:  The configuration 'queue.enqueue.timeout.ms' was supplied but isn't a known config.
+2018-05-15 19:43:01.922 [default-akka.actor.default-dispatcher-4] WARN  org.apache.kafka.clients.producer.ProducerConfig:  The configuration 'topic' was supplied but isn't a known config.
+2018-05-15 19:43:01.924 [default-akka.actor.default-dispatcher-4] INFO  org.apache.kafka.common.utils.AppInfoParser:  Kafka version : 1.1.0
+2018-05-15 19:43:01.924 [default-akka.actor.default-dispatcher-4] INFO  org.apache.kafka.common.utils.AppInfoParser:  Kafka commitId : fdcf75ea326b8e07
+2018-05-15 19:43:01.926 [default-akka.actor.default-dispatcher-4] INFO  producer:  send message {"to": "clonal@163.com", "name": "11y", "coins":"2000", "address":"ssss", "link": "www.baidu.com"}
+2018-05-15 19:43:02.001 [kafka-producer-network-thread | producer-1] INFO  org.apache.kafka.clients.Metadata:  Cluster ID: OeMJzQj_SyKUIPVyyv2A2w
+2018-05-15 19:48:28.697 [main] INFO  webserver:  Server online at http://10.0.1.61:8099 on 2018-05-15T19:48:28.696
+2018-05-15 19:49:40.155 [default-akka.actor.default-dispatcher-8] INFO  org.apache.kafka.clients.producer.ProducerConfig:  ProducerConfig values: 
+	acks = all
+	batch.size = 16384
+	bootstrap.servers = [10.0.2.190:9092]
+	buffer.memory = 33554432
+	client.id = 
+	compression.type = none
+	connections.max.idle.ms = 540000
+	enable.idempotence = false
+	interceptor.classes = []
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	linger.ms = 1
+	max.block.ms = 60000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 0
+	retry.backoff.ms = 100
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.mechanism = GSSAPI
+	security.protocol = PLAINTEXT
+	send.buffer.bytes = 131072
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+	ssl.endpoint.identification.algorithm = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLS
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 60000
+	transactional.id = null
+	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
+
+2018-05-15 19:49:40.258 [default-akka.actor.default-dispatcher-8] WARN  org.apache.kafka.clients.producer.ProducerConfig:  The configuration 'batch.num.messages' was supplied but isn't a known config.
+2018-05-15 19:49:40.415 [default-akka.actor.default-dispatcher-8] WARN  org.apache.kafka.clients.producer.ProducerConfig:  The configuration 'producer.type' was supplied but isn't a known config.
+2018-05-15 19:49:40.424 [default-akka.actor.default-dispatcher-8] WARN  org.apache.kafka.clients.producer.ProducerConfig:  The configuration 'queue.buffering.max.messages' was supplied but isn't a known config.
+2018-05-15 19:49:40.428 [default-akka.actor.default-dispatcher-8] WARN  org.apache.kafka.clients.producer.ProducerConfig:  The configuration 'queue.enqueue.timeout.ms' was supplied but isn't a known config.
+2018-05-15 19:49:40.430 [default-akka.actor.default-dispatcher-8] WARN  org.apache.kafka.clients.producer.ProducerConfig:  The configuration 'topic' was supplied but isn't a known config.
+2018-05-15 19:49:40.434 [default-akka.actor.default-dispatcher-8] INFO  org.apache.kafka.common.utils.AppInfoParser:  Kafka version : 1.1.0
+2018-05-15 19:49:40.435 [default-akka.actor.default-dispatcher-8] INFO  org.apache.kafka.common.utils.AppInfoParser:  Kafka commitId : fdcf75ea326b8e07
+2018-05-15 19:49:40.439 [default-akka.actor.default-dispatcher-8] INFO  producer:  send message {"to": "clonal@163.com", "name": "11y", "coins":"2000", "address":"ssss", "link": "www.baidu.com"}
+2018-05-15 19:49:40.521 [kafka-producer-network-thread | producer-1] INFO  org.apache.kafka.clients.Metadata:  Cluster ID: OeMJzQj_SyKUIPVyyv2A2w
+2018-05-15 19:52:32.714 [default-akka.actor.default-dispatcher-2] INFO  producer:  send message {"to": "clonal@163.com", "name": "11y", "coins":"2000", "address":"ssss", "link": "www.baidu.com"}

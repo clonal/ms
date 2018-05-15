@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="sbt: ch.lightshed:courier_2.12:0.1.4:jar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.ivy2/cache/ch.lightshed/courier_2.12/jars/courier_2.12-0.1.4.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.ivy2/cache/ch.lightshed/courier_2.12/srcs/courier_2.12-0.1.4-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,18 @@
+{
+  "activation" : {
+    "title": "Account Activation",
+    "template": "activation.html"
+  },
+  "authorization" : {
+    "title": "Bind Google Authentication",
+    "template": "authorization.html"
+  },
+  "resetpwd" : {
+    "title": "Recover Password",
+    "template": "resetpwd.html"
+  },
+  "withdrawApply" : {
+    "title": "Withdrawal Confirmation",
+    "template": "withdrawApply.html"
+  }
+}
