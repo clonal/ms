@@ -50,7 +50,8 @@ lazy val collect = (project in file("collect")).
 
 lazy val process = (project in file("process")).
   settings(
-    libraryDependencies ++= commonDependencies ++ clusterDependencies ++ processDependencies
+    libraryDependencies ++= commonDependencies ++ clusterDependencies
+      ++ processDependencies ++ httpDependencies
   )
 
 lazy val root = (project in file(".")).aggregate(webserver, collect, process)

@@ -57,7 +57,7 @@ class Processor extends Actor with ActorLogging {
         logger.info(s"发送失败: ${f.task.method} -> ${f.task.json} on ${LocalDateTime.now}")
         sender ! PoisonPill
       } else {
-        sender ! FailedSend(f.num + 1, f.task)
+        sender ! FailedSend(f.num + 1, f.task, f.msg)
       }
     case _ => log.info("receive unknown message!")
   }
@@ -99,7 +99,7 @@ object Processor {
         .withFallback(ConfigFactory.parseString("akka.cluster.roles = [processor]"))
         .withFallback(ConfigFactory.parseFile(new File("conf" + File.separator +
           "process" + File.separator + "application.conf")))
-      val system = ActorSystem("email-cluster-system", config)
+      val system = ActorSystem("email-cluster-system-pro", config)
       val processingActor = system.actorOf(Props[Processor], name = "processingActor")
       system.log.info("Processing Actor: " + processingActor)
     }

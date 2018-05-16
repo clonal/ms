@@ -94,7 +94,7 @@ object Collector {
         .withFallback(ConfigFactory.parseFile(new File("conf" + File.separator +
           "collect" + File.separator + "application.conf")))
       // 创建一个ActorSystem实例
-      val system = ActorSystem("email-cluster-system", config)
+      val system = ActorSystem("email-cluster-system-pro", config)
       val actor = system.actorOf(Props[Collector], name = "collectingActor")
       actor ! StartConsume(ConsumerActor.getTopics)
     }

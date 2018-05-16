@@ -1,18 +1,27 @@
 package com.koall.email
 
-import java.io.StringWriter
+import java.io.{File, StringWriter}
 import java.sql.Date
 import java.time.LocalDateTime
 
-import akka.actor.{Actor, ActorLogging, ActorRef}
+import akka.actor.{Actor, ActorLogging, ActorRef, ActorSystem, Props}
+import akka.http.scaladsl.Http
+import akka.http.scaladsl.common.{EntityStreamingSupport, JsonEntityStreamingSupport}
+import akka.http.scaladsl.model.{HttpRequest, HttpResponse}
+import akka.http.scaladsl.unmarshalling.Unmarshal
+import akka.stream.ActorMaterializer
+import com.typesafe.config.ConfigFactory
 import org.slf4j.LoggerFactory
 
 import scala.concurrent.Future
 import scala.util.{Failure, Success}
-import scala.concurrent.ExecutionContext.Implicits.global
 import spray.json._
 
 class Worker extends Actor with ActorLogging{
+  implicit val system = context.system
+  implicit val materializer = ActorMaterializer()
+  implicit val executionContext = system.dispatcher
+
   final val SEND_SUCCESS = 1
   final val SEND_FAIL = 0
 
@@ -20,7 +29,7 @@ class Worker extends Actor with ActorLogging{
 
   override def receive: Receive = {
     case task: EMailTask => doWork(sender, task)
-    case FailedSend(num, task) => doWork(sender, task, num)
+    case FailedSend(num, task, _) => doWork(sender, task, num)
     case _ =>
   }
 
@@ -35,11 +44,17 @@ class Worker extends Actor with ActorLogging{
           case Failure(t) =>
 //            println(s"工作失败! ")
 //            logger.info(s"工作失败! ")
-            sender ! FailedStore(task)
+            sender ! FailedStore(task, t.getMessage)
         }
-      case Failure(_) =>
-        logger.info(s"开始重试 ${task.method} -> ${task.json} on ${LocalDateTime.now}")
-        sender ! FailedSend(retry, task)
+      case Failure(t) =>
+        t.getMessage match {
+          case "send to nobody" | "wrong method" =>
+            logger.info(s"发送失败 ${task.method} -> ${task.json} on ${LocalDateTime.now} with ${t.getMessage}")
+            context.stop(self)
+          case _ =>
+            logger.info(s"开始重试 ${task.method} -> ${task.json} on ${LocalDateTime.now}")
+            sender ! FailedSend(retry, task, "retry")
+        }
     }
   }
 
@@ -73,10 +88,35 @@ class Worker extends Actor with ActorLogging{
   def store(task: EMailTask, success: Int) = {
     logger.info(s"${context.self} 开始存储 ${task.method} -> ${task.json} on ${LocalDateTime.now}")
     val params = task.json
-    val record = Record(0, params.getOrElse("name", ""),
-      params.getOrElse("to", ""), task.method, params.toJson(StringMapJsonFormat).compactPrint,
-      success, new Date(System.currentTimeMillis()))
-    DBUtil.store(record)
+     fetchId().flatMap {
+       case Some(s) =>
+         logger.info(s"${context.self} 开始获取唯一ID $s on ${LocalDateTime.now}")
+         val record = Record(s.toLong, params.getOrElse("name", ""),
+           params.getOrElse("to", ""), task.method, params.toJson(StringMapJsonFormat).compactPrint,
+           success, new Date(System.currentTimeMillis()))
+         DBUtil.store(record)
+       case _ =>
+         logger.info(s"获取唯一ID失败 on ${LocalDateTime.now}")
+         Future.failed(new RuntimeException("no msg id fetched!"))
+     }
+  }
+
+  def fetchId() = {
+    val config = ConfigFactory.parseFile(new File("conf" + File.separator +
+      "process" + File.separator + "application.conf"))
+
+    val responseFuture: Future[HttpResponse] = Http().
+      singleRequest(HttpRequest(uri = config.getString("idService")))
+
+    responseFuture.flatMap {
+      case res =>
+        implicit val jsonStreamingSupport: JsonEntityStreamingSupport =
+          EntityStreamingSupport.json()
+        Unmarshal(res.entity).to[String].map { jsonString =>
+          val j = jsonString.parseJson.convertTo[Map[String, String]](StringMapJsonFormat)
+          j.get("msg")
+        }
+    }
   }
 
   implicit object StringMapJsonFormat extends RootJsonFormat[collection.immutable.Map[String, String]] {
@@ -85,13 +125,14 @@ class Worker extends Actor with ActorLogging{
     }
     def read(value: JsValue) = {
       value.asJsObject.fields map {
-        case (k, js) => (k, js.asInstanceOf[JsString].value)
+        case (k, js: JsString) => (k, js.value)
+        case (k, js) => (k, js.toString)
       }
     }
   }
 }
 
 case class CompletedTask(task: EMailTask) extends Serializable
-case class FailedStore(task: EMailTask) extends Serializable
-case class FailedSend(num: Int, task: EMailTask) extends Serializable
+case class FailedStore(task: EMailTask, msg: String) extends Serializable
+case class FailedSend(num: Int, task: EMailTask, msg: String) extends Serializable
 case class FailedTask(task: EMailTask) extends Serializable
