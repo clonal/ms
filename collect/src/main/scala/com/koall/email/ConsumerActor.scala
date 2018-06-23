@@ -23,6 +23,7 @@ class ConsumerActor extends Actor with ActorLogging {
 
   def init(): KafkaConsumer[String, String] = {
     val props = ConsumerActor.prop
+
     props.put("group.id", "mailTopic")
     props.put("key.deserializer",
       "org.apache.kafka.common.serialization.StringDeserializer")

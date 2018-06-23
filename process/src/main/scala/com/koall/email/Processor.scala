@@ -1,15 +1,14 @@
 package com.koall.email
 
-import java.io.{File, FileInputStream}
+import java.io.File
 import java.time.LocalDateTime
-import java.util.Properties
 
 import akka.actor.{Actor, ActorLogging, ActorPath, ActorRef, ActorSystem, PoisonPill, Props, RootActorPath}
 import akka.cluster.ClusterEvent._
 import akka.cluster.{Cluster, Member, MemberStatus}
 import akka.util.Timeout
 import com.typesafe.config.ConfigFactory
-import org.slf4j.{Logger, LoggerFactory}
+import org.slf4j.LoggerFactory
 
 import scala.concurrent.ExecutionContext
 import scala.concurrent.duration._
@@ -20,10 +19,9 @@ class Processor extends Actor with ActorLogging {
   // 创建一个Cluster实例
   val cluster = Cluster(context.system)
   // 用来缓存下游注册过来的子系统ActorRef
-  var workers = IndexedSeq.empty[ActorRef]
 
-  final val MAX_RETRY = 5
-  final val logger = LoggerFactory.getLogger("processor")
+  final val MAX_RETRY = 10
+  final val logger = LoggerFactory.getLogger(Processor.getClass)
 
   override def preStart(): Unit = {
     // 订阅集群事件
@@ -80,6 +78,7 @@ class Processor extends Actor with ActorLogging {
     implicit val timeout = Timeout(10 seconds)
     val worker = context.actorOf(Props[Worker])
     logger.info(s"开始任务 ${task.method}: ${task.json}")
+//    println(s"开始任务 ${task.method}: ${task.json}")
     worker ! task
   }
 

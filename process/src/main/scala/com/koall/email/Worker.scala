@@ -52,7 +52,7 @@ class Worker extends Actor with ActorLogging{
             logger.info(s"发送失败 ${task.method} -> ${task.json} on ${LocalDateTime.now} with ${t.getMessage}")
             context.stop(self)
           case _ =>
-            logger.info(s"开始重试 ${task.method} -> ${task.json} on ${LocalDateTime.now}")
+            logger.info(s"开始重试 ${task.method} -> ${task.json} on ${LocalDateTime.now} with ${t.getMessage}")
             sender ! FailedSend(retry, task, "retry")
         }
     }
@@ -62,12 +62,13 @@ class Worker extends Actor with ActorLogging{
     val method = mail.method
     logger.info(s"${context.self} 开始工作 ${mail.method} -> ${mail.json} on ${LocalDateTime.now}")
     val params = mail.json
+    val locale = params.getOrElse("lang", "cn")
     params.get("to") match {
       case Some(to) =>
-        MailConfig.getTemplate(method).map { template =>
+        MailConfig.getTemplate(locale, method).map { template =>
           val html = FreemarkerUtil.html(template, params)(new StringWriter())
           MailUtil.sendHtmlMail(to, params.getOrElse("cc", ""),
-            MailConfig.getTitle(method), html)
+            MailConfig.getTitle(locale, method), html)
         } match {
           case Some(f) =>
 //            println(s"发送完毕! ")

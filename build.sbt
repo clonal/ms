@@ -1,3 +1,5 @@
+import sbt.Keys.resolvers
+
 name := "ko-mail"
 
 version := "0.1"
@@ -6,16 +8,16 @@ scalaVersion := "2.12.6"
 
 lazy val akkaVersion = "2.5.12"
 
-resolvers += "lightshed-maven" at "http://dl.bintray.com/content/lightshed/maven"
-
 val commonDependencies = Seq(
   "com.typesafe.akka" %% "akka-actor" % akkaVersion,
-  "com.typesafe.akka" %% "akka-testkit" % akkaVersion,
-  "com.typesafe.akka" %% "akka-slf4j" % akkaVersion % Test,
+//  "com.typesafe.akka" %% "akka-testkit" % akkaVersion,
+//  "com.typesafe.akka" %% "akka-slf4j" % akkaVersion % Test,
   "org.apache.kafka" %% "kafka" % "1.1.0",
   "ch.qos.logback" % "logback-classic" % "1.2.3",
-  "org.slf4j" % "slf4j-api" % "1.7.25",
-  "org.scalatest" %% "scalatest" % "3.0.1" % "test"
+//  "org.slf4j" % "slf4j-simple" % "1.7.25",
+//  "org.slf4j" % "slf4j-api" % "1.7.25",
+//  "org.slf4j" % "slf4j-nop" % "1.7.25",
+//  "org.scalatest" %% "scalatest" % "3.0.1" % "test"
 )
 
 val httpDependencies = commonDependencies ++ Seq(
@@ -50,8 +52,11 @@ lazy val collect = (project in file("collect")).
 
 lazy val process = (project in file("process")).
   settings(
-    libraryDependencies ++= commonDependencies ++ clusterDependencies
-      ++ processDependencies ++ httpDependencies
+    resolvers += "lightshed-maven" at "http://dl.bintray.com/content/lightshed/maven"
+  ).
+  settings(
+      libraryDependencies ++= commonDependencies ++ clusterDependencies
+        ++ processDependencies ++ httpDependencies
   )
 
 lazy val root = (project in file(".")).aggregate(webserver, collect, process)

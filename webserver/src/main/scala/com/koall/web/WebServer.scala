@@ -6,7 +6,7 @@ import java.util.Properties
 
 import akka.actor.ActorSystem
 import akka.http.scaladsl.Http
-import akka.http.scaladsl.model.{ContentTypes, HttpEntity, HttpRequest, HttpResponse}
+import akka.http.scaladsl.model._
 import akka.http.scaladsl.server.Directives._
 import akka.stream.ActorMaterializer
 import akka.stream.scaladsl.Flow
@@ -16,6 +16,7 @@ import org.apache.kafka.clients.producer.ProducerRecord
 import org.slf4j.LoggerFactory
 
 import scala.io.StdIn
+import scala.util.{Failure, Success}
 
 object WebServer {
   implicit val system = ActorSystem()
@@ -36,17 +37,22 @@ object WebServer {
         entity(as[String]) { json =>
           Producer.sendMsg(new ProducerRecord[String, String](Producer.getTopic(),
             key, json))
-          complete(HttpEntity.Empty)
+          complete(HttpEntity(ContentTypes.`application/json`, """{"code": 1, "msg": "success"}"""))
         }
       }
     }
 
     val bindingFuture = Http().bindAndHandle(services, host, port.toInt)
-    log.info(s"Server online at http://$host:$port on ${LocalDateTime.now}")
-    println(s"Server online at http://$host:$port/\nPress RETURN to stop...")
-    StdIn.readLine() // let it run until user presses return
-    bindingFuture
-      .flatMap(_.unbind()) // trigger unbinding from the port
-      .onComplete(_ ⇒ system.terminate()) // and shutdown when done
+    bindingFuture.onComplete{
+      case Success(_) =>
+        log.info(s"Server online at http://$host:$port on ${LocalDateTime.now}")
+      case Failure(t) =>
+        log.error(s"mail-web start fail, ${t.getMessage}")
+    }
+
+//    StdIn.readLine() // let it run until user presses return
+//    bindingFuture
+//      .flatMap(_.unbind()) // trigger unbinding from the port
+//      .onComplete(_ ⇒ system.terminate()) // and shutdown when done
   }
 }

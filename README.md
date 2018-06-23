@@ -1,4 +1,5 @@
 mvn clean scala:compile  package -DskipTests
+sbt clean compile assembly
 #准备工作
 1，安装 JDK 1.8.x  
 2，安装 maven  

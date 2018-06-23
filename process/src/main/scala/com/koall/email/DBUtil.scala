@@ -21,10 +21,8 @@ object DBUtil {
   def store(record: Record) = {
     db.run(records += record).andThen{
       case Success(_) =>
-//        println(s"插入成功! ")
         log.info(s"insert record ${record.template},${record.params} success")
       case Failure(t) =>
-//        println(s"插入失败! ${t.getMessage}")
         log.info(s"insert record ${record.template},${record.params} fail: ${t.getMessage}")
     }
   }

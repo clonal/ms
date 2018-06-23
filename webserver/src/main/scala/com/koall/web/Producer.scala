@@ -33,7 +33,7 @@ object Producer {
   }
 
   def sendMsg(msg: ProducerRecord[String, String]) = {
-    log.info(s"send message ${msg.value()}")
+    log.info(s"send message ${msg.value()}, ${msg.topic()}")
     producer.send(msg)
   }
 

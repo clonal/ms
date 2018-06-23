@@ -10,14 +10,19 @@ import scala.io.Source
 case class MailConfig(method: String, title: String, template: String)
 
 object MailConfig {
+  var mailConfigs: Map[String, Map[String, MailConfig]] = Map.empty
 
-  var mailConfig: Map[String, MailConfig] = Map.empty
 
   def init() = {
-    val path = new File("conf" + File.separator +
-      "process" + File.separator + "mail.json").toPath
-//    val path = new File(getClass.getResource("/" + "mail.json").getPath)
-    mailConfig = loadConfig(path.toString)
+    val files = Seq("mail_cn.json", "mail_en.json")
+    files foreach { name =>
+      val key = name.split("_").last.takeWhile(_ != '.')
+      val path = new File("conf" + File.separator +
+        "process" + File.separator + name).toPath
+      //    val path = new File(getClass.getResource("/" + "mail.json").getPath)
+      val mailConfig = loadConfig(path.toString)
+      mailConfigs += key -> mailConfig
+    }
   }
 
   def loadConfig(path: String) = {
@@ -59,11 +64,17 @@ object MailConfig {
     rec(j)
   }
 
-  def getTemplate(method: String) = {
-    mailConfig.get(method).map(_.template)
+  def getTemplate(locale: String, method: String) = {
+    mailConfigs.get(locale) match {
+      case Some(m) => m.get(method).map(_.template)
+      case _ => None
+    }
   }
 
-  def getTitle(method: String) = {
-    mailConfig.get(method).map(_.title).getOrElse("From BitArk")
+  def getTitle(locale: String, method: String) = {
+    mailConfigs.get(locale) match {
+      case Some(m) => m.get(method).map(_.title).getOrElse("no title")
+      case _ => "no title"
+    }
   }
 }
